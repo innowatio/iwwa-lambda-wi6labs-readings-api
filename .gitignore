@@ -1,0 +1,8 @@
+coverage/
+__BUILD__/
+node_modules/
+npm-debug.log
+.env
+/.ntvs_analysis.dat
+.vscode/
+jsconfig.json
