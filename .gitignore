@@ -1,5 +1,5 @@
 coverage/
-__BUILD__/
+bundle/
 node_modules/
 npm-debug.log
 .env
