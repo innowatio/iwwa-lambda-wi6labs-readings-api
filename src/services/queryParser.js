@@ -11,9 +11,27 @@ export function getEventFromObject (req) {
         mainbuf[mainbufIdx] = req.body.substr(i, 2);
         mainbufIdx++;
     }
-    var m_temperature = ((parseInt(mainbuf[12], 16) * 256) + parseInt(mainbuf[11], 16)) / 100;
-    var m_humidity = ((parseInt(mainbuf[17], 16) * 256) + parseInt(mainbuf[16], 16)) / 100;
-    var m_dewpoint = ((parseInt(mainbuf[22], 16) * 256) + parseInt(mainbuf[21], 16)) / 100;
+
+    var m_temperature = 0;
+    try {
+        m_temperature = ((parseInt(mainbuf[12], 16) * 256) + parseInt(mainbuf[11], 16)) / 100;
+    } catch (e) {
+        m_temperature = 0;
+    }
+
+    var m_humidity = 0;
+    try {
+        m_humidity = ((parseInt(mainbuf[17], 16) * 256) + parseInt(mainbuf[16], 16)) / 100;
+    } catch (e) {
+        m_humidity = 0;
+    }
+
+    var m_dewpoint = 0;
+    try {
+        m_dewpoint = ((parseInt(mainbuf[22], 16) * 256) + parseInt(mainbuf[21], 16)) / 100;
+    } catch (e) {
+        m_dewpoint = 0;
+    }
 
     var m_Model = {};
     m_Model.sensorId = "0x00000000AC000004";

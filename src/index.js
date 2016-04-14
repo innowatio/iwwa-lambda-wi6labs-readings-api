@@ -12,8 +12,8 @@ const dispatch = getDispatch({
     producerId: "server@hostname"
 });
 
-export const handler = connect({log})   
-    .use(function (req) {       
+export const handler = connect({log})
+    .use(function (req) {
         const eventType = "element inserted in collection wi6labs-raw-reading";
         const eventData = parser.getEventFromObject(req);
         const eventOptions = {
