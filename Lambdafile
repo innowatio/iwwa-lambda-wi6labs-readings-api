@@ -1,14 +1,14 @@
-#Download and install all dependencies
+# Download and install dependencies
 npm install
-#Build src into bundle dir
+# Build src/ in bundle/ with babel
 npm run build
-#Copy node_modules into bundle dir
-#Zip bundle files
+# Install production dependencies in bundle/
 cp package.json bundle/
 cd bundle
 npm install --production
+# Zip bundle files
 zip -qr bundle.zip *
 mv bundle.zip ../
-#Clean directories
+# Clean directories
 cd ..
 rm -r bundle
