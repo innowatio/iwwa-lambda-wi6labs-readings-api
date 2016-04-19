@@ -10,7 +10,6 @@ import {handler} from "index";
 chai.use(chaiAsPromised);
 chai.use(sinonChai);
 
-
 describe("wi6labs readings handler", () => {
     var dispatchSpy = sinon.stub().returns(Promise.resolve());
     indexModule.__Rewire__("dispatch", dispatchSpy);
@@ -19,7 +18,7 @@ describe("wi6labs readings handler", () => {
             "url":"/",
             "method":"POST",
             "headers":{},
-            "body":"1000101c6666620a0000294a0b100021a00c2000292d04",
+            "body":{"loraString":"1000101c6666620a0000294a0b100021a00c2000292d04"},
             "params":{}
         };
         var fakeContext ={"succeed": sinon.spy(), "fail": sinon.spy()};
@@ -37,7 +36,6 @@ describe("wi6labs readings handler", () => {
             done(error);
         });
     });
-
 });
 
 /*

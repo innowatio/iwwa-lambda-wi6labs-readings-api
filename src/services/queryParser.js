@@ -1,14 +1,13 @@
 // import * as bitConverter from  "./BinaryParser";
 import * as dtLogParser from "./dtLogParser";
-// import * as moment from "moment";
-// var moment = require("moment");
-
 
 export function getEventFromObject (req) {
     var mainbuf = [];
     var mainbufIdx=0;
-    for (var i = 0; i < req.body.length; i+=2) {
-        mainbuf[mainbufIdx] = req.body.substr(i, 2);
+    // var loraString = req.body;
+    var loraString = req.body.loraString;
+    for (var i = 0; i < loraString.length; i+=2) {
+        mainbuf[mainbufIdx] = loraString.substr(i, 2);
         mainbufIdx++;
     }
 
@@ -65,7 +64,7 @@ export function getEventFromObject (req) {
     m_Model.measurements=measurementsList;
 
 
-    // console.log(m_Model);
+    console.log(m_Model);
 
     return m_Model;
 }
